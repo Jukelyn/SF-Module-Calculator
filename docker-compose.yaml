@@ -1,0 +1,14 @@
+---
+services:
+  sf_module_calculator:
+    container_name: sf_module_calculator
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    networks:
+      - main_sites
+
+networks:
+  main_sites:
+    external: true
