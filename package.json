@@ -1,12 +1,14 @@
 {
   "name": "sf-module-calc",
   "version": "0.1.0",
-  "private": true,
+  "packageManager": "pnpm@10.10.0",
+  "private": false,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@radix-ui/react-label": "^2.1.7",
