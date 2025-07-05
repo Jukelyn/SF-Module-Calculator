@@ -4,9 +4,6 @@ import {
   ModuleStats,
 } from "@/lib/types";
 
-// Tiers should be handled by reducing them to the Tier 1 parts using
-// # of Tier 1s = 2^(tier - 1)
-
 const generateSpeedProductivityStats = (): SpeedProductivityStats[] => {
   return Array.from({ length: 40 }, () => ({
     processingSpeed: 0.0,
