@@ -105,26 +105,39 @@ export default function ModuleCalculator() {
     // Product Waste: (0.1S)\*(0.75^P)
 
     totalStats = {
-      processingSpeed:
-        1 + numModTier1["speed"] - 0.25 * numModTier1["productivity"],
+      processingSpeed: Math.max(
+        0,
+        1 + numModTier1["speed"] - 0.25 * numModTier1["productivity"]
+      ),
       energyConsumption:
         application === "machines"
-          ? (1 + 2 * numModTier1["speed"] + 0.5 * numModTier1["productivity"]) *
-            Math.pow(0.85, numModTier1["efficiency"])
+          ? Math.max(
+              0,
+              (1 +
+                2 * numModTier1["speed"] +
+                0.5 * numModTier1["productivity"]) *
+                Math.pow(0.85, numModTier1["efficiency"])
+            )
           : 0,
       energyProduction:
         application === "generators"
-          ? (1 + 0.5 * numModTier1["efficiency"]) *
-            (Math.round(Math.pow(0.9, numModTier1["speed"]) * 1000) / 1000) *
-            Math.pow(0.8, numModTier1["productivity"])
+          ? Math.max(
+              0,
+              (1 + 0.5 * numModTier1["efficiency"]) *
+                (Math.round(Math.pow(0.9, numModTier1["speed"]) * 1000) /
+                  1000) *
+                Math.pow(0.8, numModTier1["productivity"])
+            )
           : 0,
-      productWaste:
+      productWaste: Math.max(
+        0,
         100 -
-        Math.round(
-          10 *
-            numModTier1["speed"] *
-            ((Math.pow(0.75, numModTier1["productivity"]) * 1000) / 1000)
-        ),
+          Math.round(
+            10 *
+              numModTier1["speed"] *
+              ((Math.pow(0.75, numModTier1["productivity"]) * 1000) / 1000)
+          )
+      ),
     };
 
     setResults(totalStats);
@@ -375,7 +388,7 @@ export default function ModuleCalculator() {
                             Energy Production:
                           </span>
                           <span className="font-mono text-white">
-                            {results.energyProduction * 100}%
+                            {Math.round(results.energyProduction * 100)}%
                           </span>
                         </div>
                       )}
