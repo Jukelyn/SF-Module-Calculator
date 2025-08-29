@@ -158,10 +158,10 @@ export default function ModuleCalculator() {
     <div className="min-h-screen bg-gray-900 text-white">
       <div className="container mx-auto p-6 max-w-5xl">
         <div className="mb-8">
-          <h1 className="w-full max-w-lg text-center text-3xl font-bold mb-2 text-white">
+          <h1 className="text-center text-3xl font-bold mb-2 text-white">
             Module Upgrade Calculator
           </h1>
-          <p className="text-center max-w-sm text-gray-400">
+          <p className="text-center text-gray-400">
             Calculate the combined effects of your upgrade modules
           </p>
         </div>
