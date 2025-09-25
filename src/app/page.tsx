@@ -396,7 +396,7 @@ export default function ModuleCalculator() {
                     {application === "machines" &&
                       results.productWaste !== undefined && (
                         <div className="flex justify-between">
-                          <span className="text-gray-300">Productivitys:</span>
+                          <span className="text-gray-300">Productivity:</span>
                           <span className="font-mono text-white">
                             {results.productWaste}%
                           </span>
